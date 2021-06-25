@@ -1,0 +1,38 @@
+{
+  "name": "root",
+  "version": "0.0.2",
+  "description": "Uvicore Scoped Namespace Monorepo",
+  "main": "./projects/index.ts",
+  "scripts": {
+    "dev": "vite",
+    "build": "./bin/build.mjs",
+    "build-vite": "vue-tsc --noEmit && vite build",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "@uvicore/vue3": "file:projects/vue3",
+    "vue": "^3.0.11",
+    "vue-router": "^4.0.8",
+    "pinia": "^2.0.0-beta.2",
+    "axios": "^0.21.1",
+    "@headlessui/vue": "^1.2.0",
+    "@heroicons/vue": "^1.0.1",
+    "@tailwindcss/forms": "^0.3.2"
+  },
+  "devDependencies": {
+    "@types/node": "^15.12.2",
+    "@vitejs/plugin-vue": "^1.2.3",
+    "@vue/compiler-sfc": "^3.0.5",
+    "autoprefixer": "^10.2.5",
+    "eslint": "^7.27.0",
+    "eslint-plugin-vue": "^7.9.0",
+    "fs-extra": "^10.0.0",
+    "postcss": "^8.3.0",
+    "tailwindcss": "^2.1.2",
+    "tslib": "^2.3.0",
+    "typescript": "^4.3.2",
+    "vite": "^2.3.7",
+    "vite-plugin-dts": "^0.5.1",
+    "vue-tsc": "^0.0.24"
+  }
+}
