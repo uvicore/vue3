@@ -7,12 +7,13 @@ import {
 } from "vue-oidc-client/vue3";
 import { Router } from 'vue-router';
 
+
 import { useUserStore } from '@uvicore/vue3/auth/store'
 
 import { AuthInterface } from '@uvicore/vue3/auth/interface';
 
-// vue-oidc-client
-// https://github.com/soukoku/vue-oidc-client
+// // vue-oidc-client
+// // https://github.com/soukoku/vue-oidc-client
 
 export class OidcAuth implements AuthInterface {
   public config: any;

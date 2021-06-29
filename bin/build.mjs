@@ -12,13 +12,18 @@ const vite_config = (project) => {
       minify: false,
       emptyOutDir: true,
       lib: {
-        entry: project.lib,
+        entry: project.entry,
         name: project.name,
+        fileName: project.name,
         formats: ["es", "udm"],
       },
       rollupOptions: {
-        external: ['vue'],
+        external: [
+          'vue',
+          'vue-oidc-client'
+        ],
         output: {
+          format: "es",
           sourcemap: "inline",
           globals: {
             vue: 'Vue'
@@ -31,12 +36,12 @@ const vite_config = (project) => {
     //plugins: [vue(), babel({ babelHelpers: 'bundled' })]
     plugins: [
       vue(),
-      dts({
-        staticImport: true,
-        insertTypesEntry: true,
-        cleanVueFileName: true,
-        clearPureImport: true
-      })
+      // dts({
+      //   staticImport: true,
+      //   insertTypesEntry: true,
+      //   cleanVueFileName: true,
+      //   clearPureImport: true
+      // })
     ]
   }
 }
@@ -55,7 +60,7 @@ const builder = new Builder(builder_config, vite_config);
 console.log(builder)
 
 // Run build
-builder.run()
+await builder.run()
 
 
 

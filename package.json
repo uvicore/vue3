@@ -2,7 +2,7 @@
   "name": "root",
   "version": "0.0.2",
   "description": "Uvicore Scoped Namespace Monorepo",
-  "main": "./projects/index.ts",
+  "main": "./index.ts",
   "scripts": {
     "dev": "vite",
     "build": "./bin/build.mjs",

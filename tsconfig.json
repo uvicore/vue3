@@ -9,8 +9,7 @@
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "lib": ["esnext", "dom"],
-    "declaration": true,
-    "baseUrl": "./projects",
+    "declaration": true
   },
   "include": ["projects/**/*.ts", "projects/**/*.d.ts", "projects/**/*.tsx", "projects/**/*.vue"]
 }

@@ -3,7 +3,7 @@ import fs from 'fs-extra'
 import { build } from 'vite'
 import { resolve } from 'path'
 import { fileURLToPath } from 'url';
-
+import dts from "vite-plugin-dts";
 
 /**
  * Monorepo Multi-Package Vite Builder
@@ -68,9 +68,6 @@ export class Builder {
     return JSON.parse(content);
   }
 
-
-
-
   run() {
     console.log('Running build now');
 
@@ -82,7 +79,7 @@ export class Builder {
     }
   }
 
-  build(project) {
+  async build(project) {
     console.log(`Building ${project}`)
 
     // Define and create project build directory
@@ -99,9 +96,47 @@ export class Builder {
 
     console.log(packageJson)
 
+    await this.buildSubfolders(project, build_path, build_path);
+
   }
 
-  build_subfolders(project) {
+  async buildSubfolders(project, build_path, path) {
+
+    //console.log("build_subfolders:", path);
+
+    // const dirs = this.getDirectories(path);
+    // //console.log(dirs)
+    // for (let dir of dirs) {
+    //   if (dir == 'node_modules') continue;
+    //   const subfolder_path = resolve(path, dir);
+    //   this.build_subfolders(project, build_path, subfolder_path)
+
+    //   // Build this subfolder
+    //   console.log("Build " + subfolder_path)
+    // }
+
+
+    const subfolder_path = resolve(path, 'auth/adapters');
+    console.log("Build " + subfolder_path)
+
+    console.log(this.vite_config('adapters'))
+
+    const vite_config = {
+      name: 'adapters',
+      entry: resolve(subfolder_path, 'index.ts')
+    };
+    console.log(vite_config)
+
+    try {
+      await build(this.vite_config(vite_config));
+    } catch (e) {
+      console.log(e)
+    }
+
+
+
+
+
 
   }
 

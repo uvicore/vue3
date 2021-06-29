@@ -7,7 +7,7 @@ import { reactive, UnwrapRef } from 'vue';
  * Uvicore ORM style API client Model base class
  * @returns Model
  */
-export function Model<E>() {
+export function Model<E>(): any {
 
   abstract class Model {
 
@@ -32,7 +32,7 @@ export function Model<E>() {
 /**
  * Model configuration interface
  */
- export interface ModelConfig {
+export interface ModelConfig {
   connection: string,
   path: string,
 }

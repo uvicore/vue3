@@ -1,29 +1,8 @@
-import { App } from 'vue';
-import { useUserStore } from '@uvicore/vue3/auth/store';
-import { AuthInterface } from '@uvicore/vue3/auth/interface';
-
-
-export function createAuth(config: any): AuthInterface {
-
-    // Narrow config to this drivers config
-    config = config[config.driver];
-
-    // Instantiate the drivers adapter class
-    const adapter = new config.adapter(config);
-
-    // Initialize the adapter
-    adapter.init();
-
-    // Initialize our Pinia user store with our auth adapter and config
-    // const user = useUserStore();
-    // user.init(adapter, config);
-
-    return adapter
-}
-
-
-
-
+export * from './interface';
+export * from './adapters' // Error: Invalid loader: "js_commonjs-module" (valid: js, jsx, ts, tsx, css, json, text, base64, dataurl, file, binary)
+export * from './models';
+export * from './store';
+export * from './plugin';
 
 
 

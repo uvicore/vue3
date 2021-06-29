@@ -1,0 +1,6 @@
+{
+  "name": "@uvicore/vue3",
+  "version": "0.0.2",
+  "description": "Uvicore Vue3 Support Library",
+  "main": "./index.es.js"
+}
